@@ -19,7 +19,7 @@ export default function Header({ onClickSobre, onClickContato }: HeaderProps) {
       Sobre
      </li>
 
-     <li className="text-xl hover:cursor-pointer">
+     <li className="text-xl hover:cursor-pointer font-medium">
       <Link href="/resume.pdf">Currículo</Link>
      </li>
 

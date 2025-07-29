@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const instrumentSans = localFont({
   src: [
@@ -46,6 +47,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${instrumentSans.variable} antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );

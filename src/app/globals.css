@@ -4,20 +4,34 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #080808;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
+    --background: #080808;
     --foreground: #ededed;
   }
+} */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-instrument-sans), sans-serif;
+}
+
+h1,
+p,
+span,
+li {
+  color: var(--foreground);
+}
+
+section {
+  width: 100%;
 }
 
 @layer utilities {

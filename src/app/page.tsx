@@ -1,101 +1,152 @@
+"use client";
+
+import ContactForm from "@/components/ContactForm";
+import Experience from "@/components/Experience";
+import Header from "@/components/Header";
+import SectionItem from "@/components/SectionItem";
+import SectionTitle from "@/components/SectionTitle";
+import Separator from "@/components/Separator";
 import Image from "next/image";
+import Link from "next/link";
+import { useRef } from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const sobreRef = useRef<HTMLElement | null>(null);
+  const contatoRef = useRef<HTMLElement | null>(null);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+  const scrollToSobre = () => {
+    sobreRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const scrollToContato = () => {
+    contatoRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  return (
+    <div className="flex flex-col px-52 pt-8 pb-28 items-center">
+      <Header onClickSobre={scrollToSobre} onClickContato={scrollToContato} />
+
+      <h1 className="text-4xl pt-[88px] text-center font-semibold">Pedro Bonetti é um UX Designer/Product Designer atualmente trabalhando no Essentia Group.</h1>
+
+      <Separator variant="thin" />
+
+      <section className="flex flex-col items-center pb-10">
+        <SectionTitle title="Projetos" />
+
+        <div className="flex flex-col gap-24">
+          <Link href="/projetos/essentia" className="w-full">
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/n26.png"
+              alt="M26 - A home for the easier-than-ever finances"
+              width={900}
+              height={450}
+              className="w-full rounded-lg"
+              style={{ width: "100%", height: "auto" }}
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </Link>
+
+          <Link href="/projetos/essentia" className="w-full">
+            <Image
+              src="/images/easy-health.png"
+              alt="Easy Health - A inteligência artificial agora é Easy"
+              width={900}
+              height={450}
+              className="w-full rounded-lg"
+              style={{ width: "100%", height: "auto" }}
+            />
+          </Link>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+
+      <Separator />
+
+      <section ref={sobreRef}>
+        <SectionTitle title="Sobre" />
+
+        <p className="text-2xl opacity-55">Pedro é um UX Designer/Product Designer com 3 anos de experiência. Já liderou projetos de produto, desenvolveu design systems e conduziu processos completos de UX, da pesquisa ao teste com usuários. Suas principais inspirações são John Maeda, Steve Krug, Don Norman e Jakob Nielsen.</p>
+      </section>
+
+      <section className="grid grid-cols-2 gap-12 pt-[88px]">
+        <div>
+          <Separator noSpacing />
+          <SectionTitle title="Experiência" />
+        </div>
+
+        <div className="flex flex-col gap-8">
+          <Experience
+            title="Essentia Technologies"
+            subTitle="UX/UI Designer"
+            timeSpan="Abril 2023 – o momento"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+
+          <Experience
+            title="Ada Software House"
+            subTitle="UX/UI Designer"
+            timeSpan="Agosto 2022 – Novembro 2022"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+        </div>
+      </section>
+
+      <section className="grid grid-cols-2 gap-12 pt-[88px]">
+        <div>
+          <Separator noSpacing />
+          <SectionTitle title="Formação acadêmica" className="!text-[40px]" />
+        </div>
+
+        <div className="flex flex-col gap-8 ">
+          <Experience
+            title="Pós-Graduação em User Experience (UX) e Design de Experiências"
+            subTitle="Universidade do Extremo Sul Catarinense"
+            timeSpan="Jul 2021 – Mar 2022"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+
+          <Experience
+            title="Graduação em Ciência da Computação"
+            subTitle="Universidade do Extremo Sul Catarinense"
+            timeSpan="Fev 2015 – Dez 2019"
+          />
+        </div>
+      </section>
+
+      <Separator />
+
+      <section>
+        <SectionTitle title="Habilidades" />
+
+        <div className="flex flex-col gap-8 w-full">
+          <SectionItem title="Design de Experiência do Usuário (UX)" />
+          <SectionItem title="Design de Interface do Usuário (UI)" />
+          <SectionItem title="Pesquisa com Usuários e Mapeamento de Jornada" />
+          <SectionItem title="Pesquisa de Mercado e Benchmarking " />
+          <SectionItem title="Análise de Dados e Métricas de Produto" />
+          <SectionItem title="Testes de Usabilidade, Análise Heurísticas & Testes A/B" />
+        </div>
+      </section>
+
+      <Separator />
+
+      <section>
+        <SectionTitle title="Ferramentas" />
+
+        <div className="flex flex-col gap-8 w-full">
+          <SectionItem title="Figma" />
+          <SectionItem title="Adobe XD, Illustrator, Photoshop" />
+          <SectionItem title="Jira" />
+          <SectionItem title="Google Analytics" />
+          <SectionItem title="Microsoft Clarity" />
+        </div>
+      </section>
+
+      <Separator />
+
+      <section ref={contatoRef}>
+        <SectionTitle title="Contato" />
+
+        <p className="text-2xl opacity-55">Se algo aqui te interessou, que tal um café?</p>
+
+        <ContactForm />
+
+      </section>
     </div>
   );
 }

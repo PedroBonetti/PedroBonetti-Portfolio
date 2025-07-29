@@ -30,8 +30,20 @@ export async function POST(request: Request) {
   await sgMail.send(msg);
 
   return NextResponse.json({ message: "E-mail enviado com sucesso!" });
- } catch (error: any) {
-  console.error("Erro ao enviar e-mail:", error.response?.body || error.message);
+ } catch (error) {
+  if (
+   typeof error === "object" &&
+   error !== null &&
+   "response" in error &&
+   typeof error.response === "object" &&
+   error.response !== null &&
+   "body" in error.response
+  ) {
+   console.error("Erro ao enviar e-mail:", error.response.body);
+  } else {
+   console.error("Erro ao enviar e-mail:", error);
+  }
+
   return NextResponse.json(
    { error: "Erro ao enviar e-mail. Por favor, tente novamente mais tarde." },
    { status: 500 }

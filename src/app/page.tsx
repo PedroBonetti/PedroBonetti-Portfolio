@@ -23,17 +23,19 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col px-52 pt-8 pb-28 items-center">
+    <div className="flex flex-col px-[203px] 2xl:px-[480px] pt-8 pb-28 items-center">
       <Header onClickSobre={scrollToSobre} onClickContato={scrollToContato} />
 
-      <h1 className="text-4xl pt-[88px] text-center font-semibold">Pedro Bonetti é um UX Designer/Product Designer atualmente trabalhando no Essentia Group.</h1>
+      <h1 className="text-[40px] leading-[56px] pt-[88px] text-center font-semibold">
+        Pedro Bonetti é um UX Designer/Product Designer atualmente trabalhando no Essentia Group.
+      </h1>
 
       <Separator variant="thin" />
 
-      <section className="flex flex-col items-center pb-10">
+      <section className="flex flex-col items-center">
         <SectionTitle title="Projetos" />
 
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-[88px]">
           <Link href="/projetos/essentia" className="w-full">
             <Image
               src="/images/n26.png"
@@ -61,7 +63,7 @@ export default function Home() {
       <Separator />
 
       <section ref={sobreRef}>
-        <SectionTitle title="Sobre" />
+        <SectionTitle title="Sobre" className="!pt-8" />
 
         <p className="text-2xl opacity-55">Pedro é um UX Designer/Product Designer com 3 anos de experiência. Já liderou projetos de produto, desenvolveu design systems e conduziu processos completos de UX, da pesquisa ao teste com usuários. Suas principais inspirações são John Maeda, Steve Krug, Don Norman e Jakob Nielsen.</p>
       </section>
@@ -69,7 +71,7 @@ export default function Home() {
       <section className="grid grid-cols-2 gap-12 pt-[88px]">
         <div>
           <Separator noSpacing />
-          <SectionTitle title="Experiência" />
+          <SectionTitle title="Experiência" className="!pt-8" />
         </div>
 
         <div className="flex flex-col gap-8">
@@ -90,7 +92,7 @@ export default function Home() {
       <section className="grid grid-cols-2 gap-12 pt-[88px]">
         <div>
           <Separator noSpacing />
-          <SectionTitle title="Formação acadêmica" className="!text-[40px]" />
+          <SectionTitle title="Formação acadêmica" className="!pt-8" />
         </div>
 
         <div className="flex flex-col gap-8 ">
@@ -111,9 +113,9 @@ export default function Home() {
       <Separator />
 
       <section>
-        <SectionTitle title="Habilidades" />
+        <SectionTitle title="Habilidades" className="!pt-8 !pb-0" />
 
-        <div className="flex flex-col gap-8 w-full">
+        <div className="flex flex-col w-full">
           <SectionItem title="Design de Experiência do Usuário (UX)" />
           <SectionItem title="Design de Interface do Usuário (UI)" />
           <SectionItem title="Pesquisa com Usuários e Mapeamento de Jornada" />
@@ -126,7 +128,7 @@ export default function Home() {
       <Separator />
 
       <section>
-        <SectionTitle title="Ferramentas" />
+        <SectionTitle title="Ferramentas" className="!pt-8 !pb-0" />
 
         <div className="flex flex-col gap-8 w-full">
           <SectionItem title="Figma" />
@@ -140,7 +142,7 @@ export default function Home() {
       <Separator />
 
       <section ref={contatoRef}>
-        <SectionTitle title="Contato" />
+        <SectionTitle title="Contato" className="!pt-8" />
 
         <p className="text-2xl opacity-55">Se algo aqui te interessou, que tal um café?</p>
 

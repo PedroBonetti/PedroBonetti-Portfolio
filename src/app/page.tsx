@@ -1,4 +1,5 @@
 "use client";
+
 import ContactForm from "@/components/ContactForm";
 import Experience from "@/components/Experience";
 import Header from "@/components/Header";
@@ -8,16 +9,17 @@ import Separator from "@/components/Separator";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, Suspense } from "react";
 
-export default function Home() {
-  const inicioRef = useRef<HTMLDivElement | null>(null);
-  const sobreRef = useRef<HTMLElement | null>(null);
-  const contatoRef = useRef<HTMLElement | null>(null);
-
-  const [isVisible, setIsVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-
+// 1. Componente isolado apenas para ler os parâmetros da URL
+// Isso satisfaz o requisito do Next.js para o Build
+function UrlScrollHandler({
+  sobreRef,
+  contatoRef,
+}: {
+  sobreRef: React.RefObject<HTMLElement | null>;
+  contatoRef: React.RefObject<HTMLElement | null>;
+}) {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -27,13 +29,25 @@ export default function Home() {
       setTimeout(() => {
         sobreRef.current?.scrollIntoView({ behavior: "smooth" });
       }, 100);
-    }
-    else if (sessao === "contato") {
+    } else if (sessao === "contato") {
       setTimeout(() => {
         contatoRef.current?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
-  }, [searchParams]);
+  }, [searchParams, sobreRef, contatoRef]);
+
+  return null;
+}
+
+export default function Home() {
+  const inicioRef = useRef<HTMLDivElement | null>(null);
+  const sobreRef = useRef<HTMLElement | null>(null);
+  const contatoRef = useRef<HTMLElement | null>(null);
+
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  // A lógica do useSearchParams foi movida para o componente UrlScrollHandler acima
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,12 +60,24 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
-  const scrollToInicio = () => inicioRef.current?.scrollIntoView({ behavior: "smooth" });
-  const scrollToSobre = () => sobreRef.current?.scrollIntoView({ behavior: "smooth" });
-  const scrollToContato = () => contatoRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToInicio = () =>
+    inicioRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSobre = () =>
+    sobreRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToContato = () =>
+    contatoRef.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div className="flex flex-col w-full max-w-[1024px] mx-auto px-6 pt-0 pb-28" ref={inicioRef} id="inicio">
+    <div
+      className="flex flex-col w-full max-w-[1024px] mx-auto px-6 pt-0 pb-28"
+      ref={inicioRef}
+      id="inicio"
+    >
+      {/* 2. Envolvemos o handler com Suspense para evitar erro no Build */}
+      <Suspense fallback={null}>
+        <UrlScrollHandler sobreRef={sobreRef} contatoRef={contatoRef} />
+      </Suspense>
+
       <Header
         onClickNome={scrollToInicio}
         onClickSobre={scrollToSobre}
@@ -60,7 +86,8 @@ export default function Home() {
       />
 
       <h1 className="text-[40px] leading-[56px] !pt-[196px] text-center font-medium">
-        Pedro Bonetti é um UX Designer/Product Designer atualmente trabalhando no Essentia Group.
+        Pedro Bonetti é um UX Designer/Product Designer atualmente trabalhando no
+        Essentia Group.
       </h1>
 
       <Separator variant="thin" />
@@ -88,8 +115,9 @@ export default function Home() {
 
               <p className="mb-14 max-w-2xl text-[18px] leading-[26px] text-[#606060]">
                 De agendamentos a dados de saúde, gerenciar uma clínica pode ser
-                complexo. Conheça o <strong>design system</strong> criado para trazer
-                consistência, clareza e facilidade à experiência do Easy Health.
+                complexo. Conheça o <strong>design system</strong> criado para
+                trazer consistência, clareza e facilidade à experiência do Easy
+                Health.
               </p>
               <div className="relative flex items-center justify-center w-full max-w-[600px] mb-16">
                 <Image
@@ -125,7 +153,13 @@ export default function Home() {
 
       <section ref={sobreRef} id="sobre">
         <SectionTitle title="Sobre" />
-        <p className="text-2xl text-[#606060]">Pedro é um UX Designer/Product Designer com 4 anos de experiência. Já liderou projetos de produto, desenvolveu design systems e conduziu processos completos de UX, da pesquisa ao teste com usuários. Suas principais inspirações são John Maeda, Steve Krug, Don Norman e Jakob Nielsen.</p>
+        <p className="text-2xl text-[#606060]">
+          Pedro é um UX Designer/Product Designer com 4 anos de experiência. Já
+          liderou projetos de produto, desenvolveu design systems e conduziu
+          processos completos de UX, da pesquisa ao teste com usuários. Suas
+          principais inspirações são John Maeda, Steve Krug, Don Norman e Jakob
+          Nielsen.
+        </p>
       </section>
 
       <section className="grid grid-cols-2 gap-12 pt-[88px]">
@@ -192,8 +226,6 @@ export default function Home() {
           <SectionItem title="Microsoft Clarity" />
         </div>
       </section>
-
-      <Separator />
 
       <section ref={contatoRef} id="contato">
         <SectionTitle title="Contato" />

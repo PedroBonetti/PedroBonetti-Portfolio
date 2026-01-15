@@ -22,11 +22,11 @@ const instrumentSans = localFont({
 
 export const metadata: Metadata = {
   title: "Pedro Bonetti",
-  description: "UX/UI Designer",
+  description: "UX/UI Designer 1",
   openGraph: {
     title: "Pedro Bonetti",
-    description: "UX/UI Designer",
-    // url: "https://seusite.com",
+    description: "UX/UI Designer 2",
+    url: "https://seusite.com",
     siteName: "Pedro Bonetti - Portfolio",
     images: [
       {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <body className={`${instrumentSans.variable} antialiased`}>
         {children}
         <Analytics />

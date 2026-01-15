@@ -17,12 +17,13 @@ export default function Header({
     <header
       className={`
       fixed top-8 left-1/2 -translate-x-1/2 z-50
-      w-fit rounded-full py-6 px-10 flex justify-center bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),_0_4px_6px_-2px_rgba(0,0,0,0.05),_0_-2px_4px_-1px_rgba(0,0,0,0.03)]
+      w-full max-w-[740px] 
+      rounded-full py-6 px-10 flex justify-center bg-white shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),_0_4px_6px_-2px_rgba(0,0,0,0.05),_0_-2px_4px_-1px_rgba(0,0,0,0.03)]
       transition-transform duration-500 ease-in-out
       ${isVisible ? "translate-y-0" : "translate-y-[-150%]"} 
     `}
     >
-      <nav>
+      <nav className="w-full">
         <ul className="flex flex-row justify-center items-center gap-10">
           <li
             className="text-xl font-medium hover:cursor-pointer"

@@ -7,40 +7,52 @@ import SectionTitle from "@/components/SectionTitle";
 import Separator from "@/components/Separator";
 import Image from "next/image";
 import Link from "next/link";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
 
 export default function Home() {
   const inicioRef = useRef<HTMLDivElement | null>(null);
   const sobreRef = useRef<HTMLElement | null>(null);
   const contatoRef = useRef<HTMLElement | null>(null);
+
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  useEffect(() => {
+    const sessao = searchParams.get("sessao");
+
+    if (sessao === "sobre") {
+      setTimeout(() => {
+        sobreRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+    else if (sessao === "contato") {
+      setTimeout(() => {
+        contatoRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       const isScrollingUp = prevScrollPos > currentScrollPos;
-
       setIsVisible(isScrollingUp || currentScrollPos <= 0);
       setPrevScrollPos(currentScrollPos);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
-  const scrollToInicio = () => {
-    inicioRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-  const scrollToSobre = () => {
-    sobreRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
-  const scrollToContato = () => {
-    contatoRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const scrollToInicio = () => inicioRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToSobre = () => sobreRef.current?.scrollIntoView({ behavior: "smooth" });
+  const scrollToContato = () => contatoRef.current?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <div className="flex flex-col w-full max-w-[1024px] mx-auto px-6 pt-0 pb-28" ref={inicioRef}>
+    <div className="flex flex-col w-full max-w-[1024px] mx-auto px-6 pt-0 pb-28" ref={inicioRef} id="inicio">
       <Header
         onClickNome={scrollToInicio}
         onClickSobre={scrollToSobre}
@@ -60,11 +72,11 @@ export default function Home() {
           <Link
             href="/easyhealth-ds"
             className="
-      group block w-full bg-white border border-[#EAEAEA] rounded-xl overflow-hidden
-      transition-all duration-300 ease-in-out
-      hover:scale-[1.02]
-      hover:shadow-[6px_10px_25px_rgba(0,0,0,0.15)]
-    "
+              group block w-full bg-white border border-[#EAEAEA] rounded-xl overflow-hidden
+              transition-all duration-300 ease-in-out
+              hover:scale-[1.02]
+              hover:shadow-[6px_10px_25px_rgba(0,0,0,0.15)]
+            "
           >
             <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
               <span className="mb-8 text-[32px] font-bold text-[#080808]">
@@ -112,7 +124,7 @@ export default function Home() {
 
       <Separator />
 
-      <section ref={sobreRef}>
+      <section ref={sobreRef} id="sobre">
         <SectionTitle title="Sobre" />
         <p className="text-2xl text-[#606060]">Pedro é um UX Designer/Product Designer com 4 anos de experiência. Já liderou projetos de produto, desenvolveu design systems e conduziu processos completos de UX, da pesquisa ao teste com usuários. Suas principais inspirações são John Maeda, Steve Krug, Don Norman e Jakob Nielsen.</p>
       </section>
@@ -184,7 +196,7 @@ export default function Home() {
 
       <Separator />
 
-      <section ref={contatoRef}>
+      <section ref={contatoRef} id="contato">
         <SectionTitle title="Contato" />
         <p className="text-2xl">Se algo aqui te interessou, que tal um café?</p>
         <ContactForm />

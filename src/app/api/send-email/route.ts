@@ -4,23 +4,23 @@ import { Resend } from "resend";
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
- try {
-  const body = await request.json();
-  const { name, email, message } = body;
+  try {
+    const body = await request.json();
+    const { name, email, message } = body;
 
-  if (!name || !email || !message) {
-   return NextResponse.json(
-    { error: "Missing fields" },
-    { status: 400 }
-   );
-  }
+    if (!name || !email || !message) {
+      return NextResponse.json(
+        { error: "Missing fields" },
+        { status: 400 }
+      );
+    }
 
-  await resend.emails.send({
-   from: "Portfolio Contact <onboarding@resend.dev>",
-   to: ["pedro_bonetti@hotmail.com"],
-   replyTo: email,
-   subject: `Contato via Portfolio: ${name}`,
-   html: `
+    await resend.emails.send({
+      from: "Portfolio Contact <onboarding@resend.dev>",
+      to: ["pedro_bonetti@hotmail.com"],
+      replyTo: email,
+      subject: `Contato via Portfolio: ${name}`,
+      html: `
 <!DOCTYPE html>
     <html lang="pt-BR">
     <head>
@@ -63,14 +63,14 @@ export async function POST(request: Request) {
     </body>
     </html>
       `,
-  });
+    });
 
-  return NextResponse.json({ message: "E-mail enviado com sucesso!" });
+    return NextResponse.json({ message: "E-mail enviado com sucesso!" });
 
- } catch (error) {
-  return NextResponse.json(
-   { error: "Erro ao enviar e-mail" },
-   { status: 500 }
-  );
- }
+  } catch (error) {
+    return NextResponse.json(
+      { error: `Erro ao enviar e-mail: ${error}` },
+      { status: 500 }
+    );
+  }
 }

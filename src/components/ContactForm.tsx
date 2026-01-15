@@ -54,7 +54,7 @@ export default function ContactForm() {
           <input
             id="name"
             type="text"
-            placeholder="Pedro Costa"
+            placeholder="Digite seu nome"
             value={formData.name}
             onChange={(e) =>
               setFormData({ ...formData, name: e.target.value })
@@ -70,7 +70,7 @@ export default function ContactForm() {
           <input
             id="email"
             type="email"
-            placeholder="pedro.costa@gmail.com"
+            placeholder="Digite seu e-mail"
             value={formData.email}
             onChange={(e) =>
               setFormData({ ...formData, email: e.target.value })
@@ -87,7 +87,7 @@ export default function ContactForm() {
         </label>
         <textarea
           id="message"
-          placeholder="Gostaria de falar sobre..."
+          placeholder="Digite sua mensagem"
           value={formData.message}
           onChange={(e) =>
             setFormData({ ...formData, message: e.target.value })

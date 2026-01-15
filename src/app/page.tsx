@@ -40,7 +40,7 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col px-[203px] 2xl:px-[480px] pt-0 pb-28 items-center" ref={inicioRef}>
+    <div className="flex flex-col w-full max-w-[1024px] mx-auto px-6 pt-0 pb-28" ref={inicioRef}>
       <Header
         onClickNome={scrollToInicio}
         onClickSobre={scrollToSobre}
@@ -54,21 +54,61 @@ export default function Home() {
 
       <Separator variant="thin" />
 
-      <section className="flex flex-col items-center">
+      <section className="flex flex-col">
         <SectionTitle title="Projetos" />
-        <div className="flex flex-col gap-24">
-          <Link href="/easyhealth-ds" className="w-full">
-            <Image
-              src="/images/essentia.png"
-              alt="Essentia Group project"
-              width={900}
-              height={450}
-              className="w-full rounded-lg"
-              style={{ width: "100%", height: "auto" }}
-            />
+        <div className="flex flex-col gap-24" >
+          <Link
+            href="/easyhealth-ds"
+            className="
+        group block w-full bg-white border border-[#EAEAEA] rounded-xl overflow-hidden
+        transition-all duration-300 ease-in-out
+        hover:scale-[1.02]
+        hover:shadow-[6px_10px_25px_rgba(0,0,0,0.15)]
+      "
+          >
+            <div className="flex flex-col items-center px-8 pt-16 pb-12 text-center md:px-16">
+              <span className="mb-6 text-xl font-bold tracking-tight text-[#080808]">
+                Easy Health
+              </span>
+
+              <h3 className="mb-6 max-w-2xl text-4xl font-semibold leading-tight text-[#080808] md:text-5xl tracking-tight">
+                Escalando experiências de saúde com um Design System
+              </h3>
+
+              <p className="mb-12 max-w-2xl text-lg leading-relaxed text-[#606060]">
+                De agendamentos a dados de saúde, gerenciar uma clínica pode ser
+                complexo. Conheça o <strong>design system</strong> criado para trazer
+                consistência, clareza e facilidade à experiência do Easy Health.
+              </p>
+
+              <div className="relative w-full max-w-[600px] mb-16">
+                <Image
+                  src="/images/easy-health-mobile.png"
+                  alt="Easy Health App Interface"
+                  width={475}
+                  height={154}
+                  className="w-full h-auto object-contain drop-shadow-xl"
+                />
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-8 py-3 text-lg font-medium text-white transition-colors bg-[#080808] rounded-lg group-hover:bg-[#212121]">
+                Ver Design System
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </div>
           </Link>
-
-
         </div>
       </section>
 
@@ -76,7 +116,7 @@ export default function Home() {
 
       <section ref={sobreRef}>
         <SectionTitle title="Sobre" />
-        <p className="text-2xl text-[#606060]">Pedro é um UX Designer/Product Designer com 3 anos de experiência. Já liderou projetos de produto, desenvolveu design systems e conduziu processos completos de UX, da pesquisa ao teste com usuários. Suas principais inspirações são John Maeda, Steve Krug, Don Norman e Jakob Nielsen.</p>
+        <p className="text-2xl text-[#606060]">Pedro é um UX Designer/Product Designer com 4 anos de experiência. Já liderou projetos de produto, desenvolveu design systems e conduziu processos completos de UX, da pesquisa ao teste com usuários. Suas principais inspirações são John Maeda, Steve Krug, Don Norman e Jakob Nielsen.</p>
       </section>
 
       <section className="grid grid-cols-2 gap-12 pt-[88px]">
@@ -101,7 +141,7 @@ export default function Home() {
       <section className="grid grid-cols-2 gap-12 pt-[88px]">
         <div>
           <Separator noSpacing />
-          <SectionTitle title="Formação acadêmica" className="!text-[40px]" />
+          <SectionTitle title="Formação acadêmica" />
         </div>
         <div className="flex flex-col gap-8 ">
           <Experience

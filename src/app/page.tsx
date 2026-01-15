@@ -7,7 +7,7 @@ import SectionTitle from "@/components/SectionTitle";
 import Separator from "@/components/Separator";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useRef, useState, useEffect } from "react";
 
 export default function Home() {
@@ -19,7 +19,6 @@ export default function Home() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
   const searchParams = useSearchParams();
-  const router = useRouter();
 
   useEffect(() => {
     const sessao = searchParams.get("sessao");

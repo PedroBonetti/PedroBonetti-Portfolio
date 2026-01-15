@@ -37,14 +37,18 @@ export default function Header({
             Sobre
           </li>
           <li className="text-xl hover:cursor-pointer font-medium">
-            <Link href="/resume.pdf">Currículo</Link>
+            <Link
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer">
+              Currículo
+            </Link>
           </li>
           <li className="text-xl hover:cursor-pointer font-medium">
             <Link
               href="https://www.linkedin.com/in/pedrobonetti/"
               target="_blank"
-              rel="noopener noreferrer"
-            >
+              rel="noopener noreferrer">
               Linkedin
             </Link>
           </li>

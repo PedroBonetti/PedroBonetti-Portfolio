@@ -98,7 +98,7 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="bg-black rounded-full text-white py-3 mt-2 text-2xl w-full disabled:opacity-50"
+        className="bg-black rounded-full text-white py-3 mt-2 text-2xl w-full disabled:opacity-50 hover:bg-[#212121] transition-colors"
         disabled={loading}
       >
         {loading ? "Enviando..." : "Enviar Mensagem"}

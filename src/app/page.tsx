@@ -56,42 +56,40 @@ export default function Home() {
 
       <section className="flex flex-col">
         <SectionTitle title="Projetos" />
-        <div className="flex flex-col gap-24" >
+        <div className="flex flex-col gap-24">
           <Link
             href="/easyhealth-ds"
             className="
-        group block w-full bg-white border border-[#EAEAEA] rounded-xl overflow-hidden
-        transition-all duration-300 ease-in-out
-        hover:scale-[1.02]
-        hover:shadow-[6px_10px_25px_rgba(0,0,0,0.15)]
-      "
+      group block w-full bg-white border border-[#EAEAEA] rounded-xl overflow-hidden
+      transition-all duration-300 ease-in-out
+      hover:scale-[1.02]
+      hover:shadow-[6px_10px_25px_rgba(0,0,0,0.15)]
+    "
           >
-            <div className="flex flex-col items-center px-8 pt-16 pb-12 text-center md:px-16">
-              <span className="mb-6 text-xl font-bold tracking-tight text-[#080808]">
+            <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
+              <span className="mb-8 text-[32px] font-bold text-[#080808]">
                 Easy Health
               </span>
 
-              <h3 className="mb-6 max-w-2xl text-4xl font-semibold leading-tight text-[#080808] md:text-5xl tracking-tight">
+              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-semibold text-[#080808] tracking-tight">
                 Escalando experiências de saúde com um Design System
               </h3>
 
-              <p className="mb-12 max-w-2xl text-lg leading-relaxed text-[#606060]">
+              <p className="mb-14 max-w-2xl text-[18px] leading-[26px] text-[#606060]">
                 De agendamentos a dados de saúde, gerenciar uma clínica pode ser
                 complexo. Conheça o <strong>design system</strong> criado para trazer
                 consistência, clareza e facilidade à experiência do Easy Health.
               </p>
-
-              <div className="relative w-full max-w-[600px] mb-16">
+              <div className="relative flex items-center justify-center w-full max-w-[600px] mb-16">
                 <Image
                   src="/images/easy-health-mobile.png"
                   alt="Easy Health App Interface"
                   width={475}
                   height={154}
-                  className="w-full h-auto object-contain drop-shadow-xl"
+                  quality={100}
                 />
               </div>
-
-              <div className="inline-flex items-center gap-2 px-8 py-3 text-lg font-medium text-white transition-colors bg-[#080808] rounded-lg group-hover:bg-[#212121]">
+              <div className="inline-flex items-center gap-2 px-8 py-3 text-lg font-medium text-white transition-colors bg-[#080808] rounded-lg hover:bg-[#212121]">
                 Ver Design System
                 <svg
                   width="20"

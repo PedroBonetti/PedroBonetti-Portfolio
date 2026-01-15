@@ -8,11 +8,9 @@ import SectionTitle from "@/components/SectionTitle";
 import Separator from "@/components/Separator";
 import Image from "next/image";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useRef, useState, useEffect, Suspense } from "react";
 
-// 1. Componente isolado apenas para ler os parâmetros da URL
-// Isso satisfaz o requisito do Next.js para o Build
 function UrlScrollHandler({
   sobreRef,
   contatoRef,
@@ -21,9 +19,12 @@ function UrlScrollHandler({
   contatoRef: React.RefObject<HTMLElement | null>;
 }) {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   useEffect(() => {
     const sessao = searchParams.get("sessao");
+
+    if (!sessao) return;
 
     if (sessao === "sobre") {
       setTimeout(() => {
@@ -34,7 +35,13 @@ function UrlScrollHandler({
         contatoRef.current?.scrollIntoView({ behavior: "smooth" });
       }, 100);
     }
-  }, [searchParams, sobreRef, contatoRef]);
+
+    const timer = setTimeout(() => {
+      router.replace("/", { scroll: false });
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [searchParams, sobreRef, contatoRef, router]);
 
   return null;
 }
@@ -46,8 +53,6 @@ export default function Home() {
 
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-
-  // A lógica do useSearchParams foi movida para o componente UrlScrollHandler acima
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +78,6 @@ export default function Home() {
       ref={inicioRef}
       id="inicio"
     >
-      {/* 2. Envolvemos o handler com Suspense para evitar erro no Build */}
       <Suspense fallback={null}>
         <UrlScrollHandler sobreRef={sobreRef} contatoRef={contatoRef} />
       </Suspense>

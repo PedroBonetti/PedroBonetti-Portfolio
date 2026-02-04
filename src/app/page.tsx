@@ -174,7 +174,7 @@ export default function Home() {
               </p>
               <div className="relative flex items-center justify-center w-full max-w-[600px] mb-12">
                 <Image
-                  src="/images/easy-health-mobile.png"
+                  src="/images/ds/easy-health-mobile.png"
                   alt="Easy Health App Interface"
                   width={475}
                   height={154}

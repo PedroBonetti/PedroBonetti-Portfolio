@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
 
 import Header from "@/components/Header";
 
@@ -14,7 +13,6 @@ import ProjectHeader from "@/components/project/ProjectHeader";
 import ProjectCTA from "@/components/project/ProjectCTA";
 import CenteredImage from "@/components/project/CenteredImage";
 import InsightBlock from "@/components/project/InsightBlock";
-import Footer from "@/components/project/ProjectFooter";
 
 export default function EasyhealthAMPage() {
   const topRef = useRef<HTMLDivElement | null>(null);

@@ -9,7 +9,6 @@ import ProjectCTA from "@/components/project/ProjectCTA";
 import CenteredImage from "@/components/project/CenteredImage";
 import InsightBlock from "@/components/project/InsightBlock";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";

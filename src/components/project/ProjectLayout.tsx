@@ -15,9 +15,6 @@ export default function ProjectLayout({ children }: Props) {
  const router = useRouter();
  const isVisible = useHeaderScroll();
 
- const scrollToTop = () => {
-  topRef.current?.scrollIntoView({ behavior: "smooth" });
- };
 
  return (
   <div>

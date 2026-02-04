@@ -5,19 +5,19 @@ interface Props {
  alt: string;
  width: number;
  height: number;
- className?: string;
  pb?: string;
- quality?: number;
+ rounded?: boolean;
+ className?: string;
 }
 
-export default function CenteredImage({
+export default function ProjectImageBlock({
  src,
  alt,
  width,
  height,
- className,
  pb = "pb-20",
- quality,
+ rounded = false,
+ className = "",
 }: Props) {
  return (
   <div className={`flex items-center justify-center p-auto ${pb}`}>
@@ -26,8 +26,7 @@ export default function CenteredImage({
     alt={alt}
     width={width}
     height={height}
-    className={className}
-    quality={quality}
+    className={`${rounded ? "rounded-2xl" : ""} ${className}`}
    />
   </div>
  );

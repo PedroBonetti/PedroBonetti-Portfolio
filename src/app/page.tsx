@@ -109,7 +109,7 @@ export default function Home() {
             "
           >
             <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
-              <span className="mb-8 text-[32px] font-[550] text-[#080808]">
+              <span className="mb-8 text-[32px] font-medium text-[#080808]">
                 Easy Health
               </span>
 
@@ -158,7 +158,7 @@ export default function Home() {
             "
           >
             <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
-              <span className="mb-8 text-[32px] font-[550] text-[#080808]">
+              <span className="mb-8 text-[32px] font-medium text-[#080808]">
                 Easy Health
               </span>
 

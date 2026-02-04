@@ -298,7 +298,7 @@ export default function EasyhealthAMPage() {
 
           <div className="w-full max-w-[740px] mx-auto px-6 flex items-center justify-between">
             <button
-              className="bg-[#080808] h-8 w-[88px] rounded-md text-white font-semibold inline-flex items-center justify-center gap-1"
+              className="bg-[#080808] h-8 w-[88px] rounded-md text-white font-medium inline-flex items-center justify-center gap-1"
               onClick={scrollToTop}
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
@@ -309,7 +309,7 @@ export default function EasyhealthAMPage() {
             </button>
 
             <Link href="/easyhealth-ds">
-              <div className="bg-[#080808] h-8 px-4 rounded-md text-white font-semibold inline-flex items-center justify-center gap-1">
+              <div className="bg-[#080808] h-8 px-4 rounded-md text-white font-medium inline-flex items-center justify-center gap-1">
                 Ver próximo projeto
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                   <path d="M5 12h14" />

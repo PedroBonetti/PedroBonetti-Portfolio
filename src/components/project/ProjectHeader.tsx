@@ -14,7 +14,7 @@ export default function ProjectHeader({
    className={`flex flex-col ${center ? "items-center text-center" : ""}`}
   >
    {eyebrow && (
-    <h4 className="text-[16px] leading-6 pb-2">{eyebrow}</h4>
+    <h4 className="text-[16px] leading-6 pb-2 font-medium">{eyebrow}</h4>
    )}
 
    <h2 className="text-[32px] leading-[44px] font-semibold pb-8">

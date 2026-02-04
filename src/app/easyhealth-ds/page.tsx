@@ -246,7 +246,7 @@ export default function EasyhealthDSPage() {
 
           <div className="w-full max-w-[740px] mx-auto px-6 flex items-center justify-between pt-[118px]">
             <button
-              className="bg-[#080808] h-8 w-[88px] rounded-md text-white font-semibold inline-flex items-center justify-center gap-1"
+              className="bg-[#080808] h-8 w-[88px] rounded-md text-white font-medium inline-flex items-center justify-center gap-1"
               onClick={scrollToTop}
             >
               <svg
@@ -267,7 +267,7 @@ export default function EasyhealthDSPage() {
             </button>
 
             <Link href="/easyhealth-am">
-              <div className="bg-[#080808] h-8 px-4 rounded-md text-white font-semibold inline-flex items-center justify-center gap-1">
+              <div className="bg-[#080808] h-8 px-4 rounded-md text-white font-medium inline-flex items-center justify-center gap-1">
                 Ver próximo projeto
                 <svg
                   width="14"

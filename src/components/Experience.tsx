@@ -11,7 +11,7 @@ export default function Experience({ title, subTitle, timeSpan }: ExperienceProp
   <div>
    <h2 className="text-2xl font-medium mb-2">{title}</h2>
    <p className="text-2xl mb-6 w-max">{subTitle}</p>
-   <p className="text-lg text-[#606060] mb-8">{timeSpan}</p>
+   <p className="text-lg text-[#1A1B1F] mb-8">{timeSpan}</p>
    <Separator variant="thin" noSpacing />
   </div>
  )

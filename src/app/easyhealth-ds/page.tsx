@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { FaBehance, FaLinkedinIn, FaWhatsapp } from "react-icons/fa";
+import Footer from "@/components/Footer";
 
 export default function EasyhealthDSPage() {
-  const inicioRef = useRef<HTMLDivElement | null>(null);
+  const topRef = useRef<HTMLDivElement | null>(null);
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const router = useRouter();
@@ -23,8 +25,12 @@ export default function EasyhealthDSPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
 
+  const scrollToTop = () => {
+    topRef.current?.scrollIntoView({ behavior: "smooth" });
+  }
+
   const scrollToInicio = () => {
-    inicioRef.current?.scrollIntoView({ behavior: "smooth" });
+    router.push("/");
   };
 
   const scrollToSobre = () => {
@@ -36,7 +42,7 @@ export default function EasyhealthDSPage() {
   };
 
   return (
-    <div ref={inicioRef}>
+    <div>
       <Header
         onClickNome={scrollToInicio}
         onClickSobre={scrollToSobre}
@@ -44,16 +50,16 @@ export default function EasyhealthDSPage() {
         isVisible={isVisible}
       />
 
-      <div className="flex flex-col w-full max-w-[740px] mx-auto px-6 pt-0 pb-[172px]">
-        <h1 className="text-[40px] leading-[56px] !pt-[196px] font-semibold pb-8">
+      <div ref={topRef} className="flex flex-col w-full max-w-[740px] mx-auto px-6 pt-0 pb-[172px]">
+        <h1 className="text-[40px] leading-[56px] !pt-[196px] font-medium pb-8">
           Easy Health
         </h1>
 
-        <p className="text-xl leading-[28px] text-[#606060] pb-8">
+        <p className="text-xl leading-[28px] text-[#1A1B1F] pb-8">
           O Easy Health, desenvolvido pela Essentia Technologies, é um software de gestão clínica que integra agenda, prontuário eletrônico, prescrição digital e outros recursos voltados para médicos e nutricionistas.
         </p>
 
-        <p className="text-xl leading-[28px] text-[#606060] pb-12">
+        <p className="text-xl leading-[28px] text-[#1A1B1F] pb-12">
           Meu papel foi criar o primeiro Design System da plataforma, definindo padrões visuais e promovendo a consistência do produto.
         </p>
 
@@ -69,8 +75,15 @@ export default function EasyhealthDSPage() {
         <Link
           href="https://easy-health.app/landing-page/index.html"
           target="_blank"
-          rel="noopener noreferrer" className="flex justify-center">
-          <div className="inline-flex items-center justify-center w-[356px] gap-2 px-8 py-3 text-lg border border-[#08080866] text-[#080808] transition-colors bg-none rounded-lg">
+          rel="noopener noreferrer"
+          className="flex justify-center"
+        >
+          <div
+            className="inline-flex items-center justify-center w-[356px] gap-2 px-8 py-3 text-lg 
+               border border-[#08080866] text-[#080808] rounded-lg
+               transition-colors duration-200
+               hover:bg-black hover:text-white hover:border-black"
+          >
             Saiba mais sobre o Easy Health
             <svg
               width="20"
@@ -81,12 +94,14 @@ export default function EasyhealthDSPage() {
               strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
+              className="transition-colors duration-200"
             >
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
             </svg>
           </div>
         </Link>
+
       </div>
 
 
@@ -94,18 +109,18 @@ export default function EasyhealthDSPage() {
         <div className="w-full max-w-[740px] mx-auto px-6">
           <h4 className="text-[16px] leading-6 pb-2">Problema</h4>
 
-          <h2 className="text-[32px] leading-[44px] font-bold pb-8">Os primeiros passos</h2>
+          <h2 className="text-[32px] leading-[44px] font-semibold pb-8">Os primeiros passos</h2>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-8">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-8">
             Ao iniciar na Essentia Technologies, identifiquei alguns problemas no processo criativo que impactavam diretamente a eficiência do time:</p>
 
           <ol className="list-decimal list-inside pb-8 gap-4 flex flex-col">
-            <li className=" text-xl leading-[28px] text-[#606060]">Ausência de uma padronização visual clara.</li>
-            <li className=" text-xl leading-[28px] text-[#606060]">Falta de componentização no design.</li>
-            <li className=" text-xl leading-[28px] text-[#606060]">Falhas de comunicação entre design e desenvolvimento.</li>
+            <li className=" text-xl leading-[28px] text-[#1A1B1F]">Ausência de uma padronização visual clara.</li>
+            <li className=" text-xl leading-[28px] text-[#1A1B1F]">Falta de componentização no design.</li>
+            <li className=" text-xl leading-[28px] text-[#1A1B1F]">Falhas de comunicação entre design e desenvolvimento.</li>
           </ol>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-8">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-8">
             Esses pontos geravam retrabalho recorrente tanto para designers quanto para desenvolvedores.</p>
         </div>
       </div>
@@ -114,17 +129,17 @@ export default function EasyhealthDSPage() {
         <div className="w-full max-w-[740px] mx-auto px-6">
           <h4 className="text-[16px] leading-6 pb-2">Oportunidade</h4>
 
-          <h2 className="text-[32px] leading-[44px] font-bold pb-8">Propondo a solução</h2>
+          <h2 className="text-[32px] leading-[44px] font-semibold pb-8">Propondo a solução</h2>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-8">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-8">
             Tudo mudou com a chegada da primeira hackathon do grupo Essentia. </p>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-8">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-8">
             Vi a oportunidade ideal para mudar esse cenário e sugeri a criação de um novo Design System.
           </p>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-12">
-            Com a base estruturada durante o evento, pude aprimorá-lo nas semanas seguintes, consolidando uma linguagem visual unificada que <strong>atualmente é a base de design do produto.</strong>
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-12">
+            Com a base estruturada durante o evento, pude aprimorá-lo nas semanas seguintes, consolidando uma linguagem visual unificada que <strong className="font-semibold">atualmente é a base de design do produto.</strong>
           </p>
 
           <div className="flex items-center justify-center m-auto pb-16">
@@ -142,23 +157,23 @@ export default function EasyhealthDSPage() {
         <div className="w-full max-w-[740px] mx-auto px-6">
           <h4 className="text-[16px] leading-6 pb-2">Apresentação</h4>
 
-          <h2 className="text-[32px] leading-[44px] font-bold pb-8">O novo Design System</h2>
+          <h2 className="text-[32px] leading-[44px] font-semibold pb-8">O novo Design System</h2>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-12">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-12">
             O Design System foi estruturado em duas etapas:</p>
 
           <div className="grid grid-cols-2 gap-24 pb-8">
             <div>
               <h3 className="text-5xl font-bold pb-4">1.</h3>
               <h4 className="text-[32px] leading-[44px] font-semibold pb-8">Fundamentos visuais</h4>
-              <p className="text-xl leading-[28px] text-[#606060]">
+              <p className="text-xl leading-[28px] text-[#1A1B1F]">
                 Definição da base tipográfica, paleta de cores, espaçamentos ícones e tokens.
               </p>
             </div>
             <div>
               <h3 className="text-5xl font-bold pb-4">2.</h3>
               <h4 className="text-[32px] leading-[44px] font-semibold pb-8">Componentes reutilizáveis</h4>
-              <p className="text-xl leading-[28px] text-[#606060]">
+              <p className="text-xl leading-[28px] text-[#1A1B1F]">
                 Construção de elementos como botões, inputs, modais e grids.
               </p>
             </div>
@@ -170,9 +185,9 @@ export default function EasyhealthDSPage() {
         <div className="w-full max-w-[740px] mx-auto px-6 flex items-center flex-col">
           <h4 className="text-[16px] leading-6 pb-2">Apresentação</h4>
 
-          <h2 className="text-[32px] leading-[40px] font-bold pb-4">Fundamentos Visuais</h2>
+          <h2 className="text-[32px] leading-[40px] font-semibold pb-4">Fundamentos Visuais</h2>
 
-          <p className="text-xl leading-[28px] text-[#606060] text-center pb-20">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] text-center pb-20">
             Definição dos elementos visuais como tipografia, paleta de cores, espaçamentos e ícones, organizados em tokens.
           </p>
         </div>
@@ -200,9 +215,9 @@ export default function EasyhealthDSPage() {
         <div className="w-full max-w-[740px] mx-auto px-6 flex items-center flex-col">
           <h4 className="text-[16px] leading-6 pb-2">Apresentação</h4>
 
-          <h2 className="text-[32px] leading-[40px] font-bold pb-4">Componentes</h2>
+          <h2 className="text-[32px] leading-[40px] font-semibold pb-4">Componentes</h2>
 
-          <p className="text-xl leading-[28px] text-[#606060] text-center pb-20">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] text-center pb-20">
             Criação de componentes reutilizáveis como botões, inputs, toasts, modais e tooltips.
           </p>
         </div>
@@ -230,26 +245,26 @@ export default function EasyhealthDSPage() {
         <div className="w-full max-w-[740px] mx-auto px-6">
           <h4 className="text-[16px] leading-6 pb-2">Resultados</h4>
 
-          <h2 className="text-[32px] leading-[44px] font-bold pb-8">Impacto na produtividade</h2>
+          <h2 className="text-[32px] leading-[44px] font-semibold pb-8">Impacto na produtividade</h2>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-8">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-8">
             Após a implementação do Design System, o tempo de criação de protótipos reduziu significativamente. Com a estruturação dos tokens e componentes na programação, os desenvolvedores passaram a trabalhar com mais eficiência, diminuindo o retrabalho e acelerando as entregas.
           </p>
         </div>
       </div>
 
-      <div className="w-full pt-[172px] pb-[172px]">
+      <div className="w-full pt-[172px]">
         <div className="w-full max-w-[740px] mx-auto px-6">
           <h4 className="text-[16px] leading-6 pb-2">Resultados</h4>
 
-          <h2 className="text-[32px] leading-[44px] font-bold pb-8">Diretrizes do Design</h2>
+          <h2 className="text-[32px] leading-[44px] font-semibold pb-8">Diretrizes do Design</h2>
 
-          <p className="text-xl leading-[28px] text-[#606060] pb-20">
+          <p className="text-xl leading-[28px] text-[#1A1B1F] pb-20">
             A última iniciativa que conduzi foi uma apresentação para a toda a equipe, destacando a importância de um design system na consistência visual e organizacional de um produto.
           </p>
         </div>
 
-        <div className="flex items-center justify-center p-auto pb-20">
+        <div className="flex flex-col items-center justify-center p-auto pb-[118px]">
           <Image
             src="/images/presentation.png"
             alt="Apresentação do Pedro para a equipe sobre Design System"
@@ -257,8 +272,61 @@ export default function EasyhealthDSPage() {
             height={549}
             className="rounded-2xl"
           />
+          <div className="w-full max-w-[740px] mx-auto px-6 flex items-center justify-between pt-[118px]">
+            <button
+              className="bg-[#080808] h-8 w-[88px] rounded-md text-white font-semibold 
+               inline-flex items-center justify-center gap-1" onClick={scrollToTop}
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="text-white"
+              >
+                <path d="M12 19V5" />
+                <path d="m5 12 7-7 7 7" />
+              </svg>
+              Topo
+            </button>
+
+            <Link href="/easyhealth-am" target="_blank" rel="noopener noreferrer">
+              <div
+                className="bg-[#080808] h-8 px-4 rounded-md text-white font-semibold 
+               inline-flex items-center justify-center gap-1"
+              >
+                Ver próximo projeto
+                <svg
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-white"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          </div>
+
+
         </div>
+      </div >
+
+      <div className="w-full bg-[#F4F4F4] py-14">
+        <Footer />
       </div>
+
+
     </div >
   )
 }

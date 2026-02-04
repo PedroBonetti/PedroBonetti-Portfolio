@@ -4,7 +4,7 @@ type SeparatorProps = {
 };
 
 export default function Separator({ variant, noSpacing }: SeparatorProps) {
- const borderColor = variant === 'thin' ? 'border-[#BDC1C8]' : 'border-[#606060]';
+ const borderColor = variant === 'thin' ? 'border-[#BDC1C8]' : 'border-[#1A1B1F]';
  const spacing = noSpacing ? '' : 'mt-[88px]';
 
  return (

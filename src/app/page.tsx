@@ -98,7 +98,56 @@ export default function Home() {
 
       <section className="flex flex-col">
         <SectionTitle title="Projetos" />
-        <div className="flex flex-col gap-24">
+        <div className="flex flex-col gap-20">
+          <Link
+            href="/easyhealth-am"
+            className="
+              group block w-full bg-white border border-[#EAEAEA] rounded-xl overflow-hidden
+              transition-all duration-300 ease-in-out
+              hover:scale-[1.02]
+              hover:shadow-[6px_10px_25px_rgba(0,0,0,0.15)]
+            "
+          >
+            <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
+              <span className="mb-8 text-[32px] font-semibold text-[#080808]">
+                Easy Health
+              </span>
+
+              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-medium text-[#080808] tracking-tight">
+                Redesenhando o Modelo de Aquisição do Easy Health
+              </h3>
+
+              <p className="mb-12 max-w-2xl text-[18px] leading-[26px] text-[#1A1B1F]">
+                Uma pesquisa estratégica com usuários orientando decisões de produto e vendas em um SaaS B2B.
+              </p>
+              <div className="relative flex items-center justify-center w-full max-w-[600px] mb-12">
+                <Image
+                  src="/images/easy-health-desktop-and-mobile.png"
+                  alt="Easy Health App Interface"
+                  width={518}
+                  height={236}
+                  quality={100}
+                />
+              </div>
+              <div className="inline-flex items-center gap-2 px-8 py-3 text-lg font-medium text-white transition-colors bg-[#080808] rounded-lg hover:bg-[#212121]">
+                Ver Pesquisa
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
           <Link
             href="/easyhealth-ds"
             className="
@@ -109,21 +158,21 @@ export default function Home() {
             "
           >
             <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
-              <span className="mb-8 text-[32px] font-bold text-[#080808]">
+              <span className="mb-8 text-[32px] font-semibold text-[#080808]">
                 Easy Health
               </span>
 
-              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-semibold text-[#080808] tracking-tight">
+              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-medium text-[#080808] tracking-tight">
                 Escalando experiências de saúde com um Design System
               </h3>
 
-              <p className="mb-14 max-w-2xl text-[18px] leading-[26px] text-[#606060]">
+              <p className="mb-12 max-w-2xl text-[18px] leading-[26px] text-[#1A1B1F]">
                 De agendamentos a dados de saúde, gerenciar uma clínica pode ser
-                complexo. Conheça o <strong>design system</strong> criado para
+                complexo. Conheça o <strong className="font-semibold">design system</strong> criado para
                 trazer consistência, clareza e facilidade à experiência do Easy
                 Health.
               </p>
-              <div className="relative flex items-center justify-center w-full max-w-[600px] mb-16">
+              <div className="relative flex items-center justify-center w-full max-w-[600px] mb-12">
                 <Image
                   src="/images/easy-health-mobile.png"
                   alt="Easy Health App Interface"
@@ -157,7 +206,7 @@ export default function Home() {
 
       <section ref={sobreRef} id="sobre">
         <SectionTitle title="Sobre" />
-        <p className="text-2xl text-[#606060]">
+        <p className="text-2xl text-[#1A1B1F]">
           Pedro é um UX Designer/Product Designer com 4 anos de experiência. Já
           liderou projetos de produto, desenvolveu design systems e conduziu
           processos completos de UX, da pesquisa ao teste com usuários. Suas
@@ -230,6 +279,8 @@ export default function Home() {
           <SectionItem title="Microsoft Clarity" />
         </div>
       </section>
+
+      <Separator />
 
       <section ref={contatoRef} id="contato">
         <SectionTitle title="Contato" />

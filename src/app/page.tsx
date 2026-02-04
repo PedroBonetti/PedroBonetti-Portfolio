@@ -109,11 +109,11 @@ export default function Home() {
             "
           >
             <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
-              <span className="mb-8 text-[32px] font-medium text-[#080808]">
+              <span className="mb-8 text-[32px] font-[550] text-[#080808]">
                 Easy Health
               </span>
 
-              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-semibold text-[#080808] tracking-tight">
+              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-[550] text-[#080808] tracking-tight">
                 Redesenhando o Modelo de Aquisição do Easy Health
               </h3>
 
@@ -158,11 +158,11 @@ export default function Home() {
             "
           >
             <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
-              <span className="mb-8 text-[32px] font-medium text-[#080808]">
+              <span className="mb-8 text-[32px] font-[550] text-[#080808]">
                 Easy Health
               </span>
 
-              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-semibold text-[#080808] tracking-tight">
+              <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-[550] text-[#080808] tracking-tight">
                 Escalando experiências de saúde com um Design System
               </h3>
 

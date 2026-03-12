@@ -122,7 +122,7 @@ export default function Home() {
               </p>
               <div className="relative flex items-center justify-center w-full max-w-[600px] mb-12">
                 <Image
-                  src="/images/am/easy-health-desktop-and-mobile.png"
+                  src="/images/am/easy-health-desktop-and-mobile.svg"
                   alt="Easy Health App Interface"
                   width={518}
                   height={236}
@@ -145,6 +145,65 @@ export default function Home() {
                   <path d="m12 5 7 7-7 7" />
                 </svg>
               </div>
+            </div>
+          </Link>
+
+          <Link
+            href="/easyhealth-is"
+            className="
+    group block w-full bg-white border border-[#EAEAEA] rounded-xl overflow-hidden
+    transition-all duration-300 ease-in-out
+    hover:scale-[1.02]
+    hover:shadow-[6px_10px_25px_rgba(0,0,0,0.15)]
+  "
+          >
+            <div className="flex flex-col items-center px-8 py-20 text-center md:px-16">
+
+              <div className="flex flex-col items-center w-full gap-12 md:flex-row md:items-center md:justify-center md:text-left">
+
+                <div className="relative flex items-center justify-center w-full max-w-[600px]">
+                  <Image
+                    src="/images/is/admin-injetaveis.svg"
+                    alt="Easy Health App Interface"
+                    width={475}
+                    height={154}
+                    quality={100}
+                  />
+                </div>
+
+                <div className="flex flex-col items-center md:items-start">
+                  <span className="mb-8 text-[32px] font-[550] text-[#080808]">
+                    Essentia Group
+                  </span>
+
+                  <h3 className="mb-10 max-w-2xl text-[48px] leading-[56px] font-[550] text-[#080808] tracking-tight">
+                    De Fluxos Fragmentados a um Sistema Integrado
+                  </h3>
+
+                  <p className="mb-12 max-w-2xl text-[18px] leading-[26px] text-[#1A1B1F]">
+                    A construção do painel administrativo da loja de injetáveis do Grupo Essentia.
+                  </p>
+                </div>
+
+              </div>
+
+              <div className="inline-flex items-center gap-2 px-8 py-3 mt-[70px] text-lg font-medium text-white transition-colors bg-[#080808] rounded-lg hover:bg-[#212121]">
+                Ver Projeto
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+
             </div>
           </Link>
 
@@ -174,7 +233,7 @@ export default function Home() {
               </p>
               <div className="relative flex items-center justify-center w-full max-w-[600px] mb-12">
                 <Image
-                  src="/images/ds/easy-health-mobile.png"
+                  src="/images/ds/easy-health-mobile.svg"
                   alt="Easy Health App Interface"
                   width={475}
                   height={154}

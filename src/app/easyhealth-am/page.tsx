@@ -48,7 +48,7 @@ export default function EasyhealthAMPage() {
 
       {/* HERO */}
       <div ref={topRef} className="flex flex-col w-full max-w-[740px] mx-auto px-6 pt-0 pb-[172px]">
-        <h1 className="text-[40px] leading-[56px] !pt-[196px] font-medium pb-8">Easy Health</h1>
+        <h1 className="text-[40px] leading-[56px] !pt-[196px] font-bold pb-8">Easy Health</h1>
         <p className="text-xl leading-[28px] text-[#1A1B1F] pb-8">
           O Easy Health, desenvolvido pela Essentia Technologies, é um software de gestão clínica voltado para médicos e nutricionistas.
         </p>
@@ -57,7 +57,7 @@ export default function EasyhealthAMPage() {
         </p>
 
         <CenteredImage
-          src="/images/am/easy8.png"
+          src="/images/am/easy8.svg"
           alt="Tablets e celular com telas do Easy Health"
           width={680}
           height={623}

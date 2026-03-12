@@ -58,7 +58,7 @@ export default function EasyhealthDSPage() {
 
       {/* HERO / INTRO */}
       <div ref={topRef} className="flex flex-col w-full max-w-[740px] mx-auto px-6 pt-0 pb-[172px]">
-        <h1 className="text-[40px] leading-[56px] !pt-[196px] font-medium pb-8">
+        <h1 className="text-[40px] leading-[56px] !pt-[196px] font-bold pb-8">
           Easy Health
         </h1>
 
@@ -71,7 +71,7 @@ export default function EasyhealthDSPage() {
         </p>
 
         <CenteredImage
-          src="/images/ds/easy-health-image-1.png"
+          src="/images/ds/easy-health-image-1.svg"
           alt="Tablets e celular com telas do Easy Health"
           width={559}
           height={503}
@@ -123,7 +123,7 @@ export default function EasyhealthDSPage() {
           </p>
 
           <CenteredImage
-            src="/images/ds/easy-health-image-2.png"
+            src="/images/ds/easy-health-image-2.svg"
             alt="Laptop e celular com telas do Easy Health"
             width={670}
             height={497}
@@ -203,7 +203,7 @@ export default function EasyhealthDSPage() {
         </ProjectContainer>
 
         <CenteredImage
-          src="/images/ds/components-1.png"
+          src="/images/ds/components-1.svg"
           alt="Componentes do Easy Health 1"
           width={1202}
           height={1352}
@@ -211,7 +211,7 @@ export default function EasyhealthDSPage() {
         />
 
         <CenteredImage
-          src="/images/ds/components-2.png"
+          src="/images/ds/components-2.svg"
           alt="Componentes do Easy Health 2"
           width={1202}
           height={895}
@@ -241,7 +241,7 @@ export default function EasyhealthDSPage() {
         </ProjectContainer>
 
         <div className="flex flex-col items-center justify-center">
-          <CenteredImage src="/images/ds/presentation.png" className="rounded-2xl" alt="Pedro e Luiz" width={1127} height={549} pb="0" />
+          <CenteredImage src="/images/ds/presentation.svg" className="rounded-2xl" alt="Pedro e Luiz" width={1127} height={549} pb="0" />
 
 
           <div className="w-full max-w-[740px] mx-auto px-6 flex items-center justify-between pt-[118px]">
@@ -266,7 +266,7 @@ export default function EasyhealthDSPage() {
               Topo
             </button>
 
-            <Link href="/easyhealth-am">
+            <Link href="/easyhealth-is">
               <div className="bg-[#080808] h-8 px-4 rounded-md text-white font-medium inline-flex items-center justify-center gap-1">
                 Ver próximo projeto
                 <svg

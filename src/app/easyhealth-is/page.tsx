@@ -5,9 +5,7 @@ import ProjectLayout from "@/components/project/ProjectLayout";
 import ProjectContainer from "@/components/project/ProjectContainer";
 import ProjectSection from "@/components/project/ProjectSection";
 import ProjectHeader from "@/components/project/ProjectHeader";
-import ProjectCTA from "@/components/project/ProjectCTA";
 import CenteredImage from "@/components/project/CenteredImage";
-import InsightBlock from "@/components/project/InsightBlock";
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
